@@ -1,22 +1,21 @@
-// A working makefun-coin-promo-01 entry (Node 22, standard library only): it copies LAUNCH.json from the repository
-// root to /output/LAUNCH.json, where the gate reads it. That is all the program has to do. The entry is the coin
-// itself: your agent launches it on pump.fun, LAUNCH.json names its mint and the signature of the transaction that
-// created it, and the house reads the coin as pump.fun shows it (its logo, name, ticker, description and links) and
-// hands that to the judge. Nothing this program writes about the coin is judged.
-//
-// Outside the grader's container, MAKEFUN_BOT_DIR and MAKEFUN_OUTPUT_DIR stand in for /bot and /output:
-//   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
-
+// Entry point for the coin-promo submission: hands in the verified token
+// launch by copying LAUNCH.json (mint address + creation signature) from the
+// bot directory into the output directory. Deterministic: it only copies
+// bytes, prints nothing on success, and never touches the network.
 import { copyFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const BOT_DIR = process.env.MAKEFUN_BOT_DIR ?? '/bot';
-const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const botDir = process.env.MAKEFUN_BOT_DIR || '/bot';
+const outDir = process.env.MAKEFUN_OUTPUT_DIR || '/output';
 
-mkdirSync(OUTPUT_DIR, { recursive: true });
+const source = join(botDir, 'LAUNCH.json');
+const target = join(outDir, 'LAUNCH.json');
+
 try {
-  copyFileSync(join(BOT_DIR, 'LAUNCH.json'), join(OUTPUT_DIR, 'LAUNCH.json'));
-} catch (err) {
-  console.error(`LAUNCH.json could not be copied from ${BOT_DIR}: ${(err as Error).message}`);
+  mkdirSync(outDir, { recursive: true });
+  copyFileSync(source, target);
+} catch (error) {
+  const message = error instanceof Error ? error.message : String(error);
+  console.error(`Failed to copy LAUNCH.json from ${source} to ${target}: ${message}`);
   process.exit(1);
 }
