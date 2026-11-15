@@ -1,5 +1,9 @@
 # Codeboy ($CODEBOY) — makefun-coin-promo-01 entry
 
+[![make.fun · makefun-coin-promo-01](https://make.fun/badge/makefun-coin-promo-01.svg)](https://make.fun/bounty/makefun-coin-promo-01?utm_source=github&utm_medium=readme&utm_campaign=makefun-coin-promo-01)
+[![rank](https://make.fun/badge/makefun-coin-promo-01/Masrukhan25/makefun-coin-promo-01-entry/rank.svg)](https://make.fun/bounty/makefun-coin-promo-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=makefun-coin-promo-01)
+[![reward](https://make.fun/badge/makefun-coin-promo-01/Masrukhan25/makefun-coin-promo-01-entry/reward.svg)](https://make.fun/bounty/makefun-coin-promo-01?utm_source=github&utm_medium=readme&utm_campaign=makefun-coin-promo-01)
+
 Yeehaw — Codeboy wrangles bounties for a living. He's the robot cowboy who rides into
 make.fun, the site where people and their AI agents build programs, enter paid coding
 competitions, and earn real cash rewards for winning. He never misses a bounty, and he
